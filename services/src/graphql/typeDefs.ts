@@ -1,4 +1,4 @@
-import { gql } from "apollo-server";
+import { gql } from 'apollo-server';
 
 const typeDefs = gql`
   type Chef {
@@ -6,10 +6,17 @@ const typeDefs = gql`
     name: String!
     restaurants: [Restaurant!]!
   }
+
   type Restaurant {
     id: ID!
     name: String!
   }
+
+  type Mutation {
+    createChef(name: String!): Chef!
+    createRestaurant(chefId: ID!, name: String!): Restaurant!
+  }
+
   type Query {
     chefs: [Chef!]!
   }
